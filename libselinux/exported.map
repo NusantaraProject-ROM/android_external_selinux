@@ -37,6 +37,7 @@
     selinux_check_access;
     selinux_log_callback;
     selinux_set_callback;
+    selinux_status_getenforce;
     selinux_status_open;
     selinux_status_updated;
     selinux_vendor_log_callback;
