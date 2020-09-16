@@ -270,6 +270,12 @@ int main(int argc, char *argv[])
 
 		buffer = malloc(file_size);
 		rc = fread(buffer, file_size, 1, file);
+		if (rc == 0) {
+			fprintf(stdout, "Ignoring empty file: %s\n", argv[i]);
+			free(buffer);
+			buffer = NULL;
+			continue;
+		}
 		if (rc != 1) {
 			fprintf(stderr, "Failure reading file: %s\n", argv[i]);
 			rc = SEPOL_ERR;
